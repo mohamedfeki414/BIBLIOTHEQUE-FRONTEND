@@ -25,7 +25,7 @@ const Menu = () => {
               <Nav.Link as={Link} to="/editeurs" className="nav-link-custom">
                 Éditeurs
               </Nav.Link>
-              <Nav.Link as={Link} to="/specialistes" className="nav-link-custom">
+              <Nav.Link as={Link} to="/specialites" className="nav-link-custom">
                 Spécialistes
               </Nav.Link>
             </Nav>
