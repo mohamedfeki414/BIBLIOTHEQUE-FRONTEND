@@ -2,7 +2,7 @@ import React from 'react';
 import { Nav, Navbar, Container, Form, FormControl, Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { FaSearch } from 'react-icons/fa';
-import './Menu.css'; // Ajouter un fichier CSS personnalisé pour plus de style
+import './Menu.css'; 
 
 const Menu = () => {
   return (
