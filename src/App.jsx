@@ -1,6 +1,7 @@
 import { BrowserRouter as Router,Routes, Route } from "react-router-dom"; 
 import './App.css'
 import Listlivres from './components/livres/Listlivres'
+import Menu from "./components/Menu";
 
 const App=() => {
   
@@ -9,6 +10,7 @@ const App=() => {
     
       <div> 
         <Router>
+          <Menu/>
           <Routes>
             <Route path="/livres" element={<Listlivres/>} />
           </Routes>
