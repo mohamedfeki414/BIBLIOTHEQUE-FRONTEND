@@ -25,24 +25,24 @@ useEffect(() => {
         <table className='table table table-striped'> 
           <thead> 
             <tr> 
-              <td>id</td> 
-              <td>titre</td> 
-              <td>Anne edition</td>
-              <td>prix</td>
-              <td>qte stock</td>
-              <td>specialite</td>
-              <td>maison d idition</td>
-              <td>auteurs</td>
-              <td>Update</td> 
-              <td>Delete</td> 
+            <td>Titre</td> 
+            <td>Couverture</td>
+            <td>Année d'édition</td>
+            <td>Prix</td>
+            <td>Quantité en stock</td>
+            <td>Spécialité</td>
+            <td>Maison d'édition</td>
+            <td>Auteurs</td>
+            <td>Update</td> 
+            <td>Delete</td>
             </tr> 
           </thead> 
         <tbody> 
         { livres && 
             livres.map((cat,index) => 
        <tr key={index}> 
-         <td>{cat._id}</td> 
          <td>{cat.titre}</td> 
+         <td><img src={cat.couverture} width={100} height={100}/></td>
          <td>{cat.annedition}</td>
          <td>{cat.prix}</td>
          <td>{cat.qtestock}</td>
