@@ -1,0 +1,67 @@
+/* Arrière-plan dégradé pour toute la page */
+.menu-container {
+    background: linear-gradient(to right, #4e54c8, #8f94fb);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  /* Barre de navigation translucide avec ombre */
+  .navbar-custom {
+    background-color: rgba(0, 0, 0, 0.7) !important;
+    backdrop-filter: blur(10px);
+    border-bottom: 2px solid #8f94fb;
+  }
+  
+  /* Marque personnalisée */
+  .brand-custom {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.5rem;
+    color: #ffffff !important;
+    font-weight: bold;
+  }
+  
+  /* Liens dans la navigation */
+  .nav-link-custom {
+    font-family: 'Poppins', sans-serif;
+    color: #ffffff !important;
+    font-size: 1rem;
+    margin-right: 1rem;
+    transition: color 0.3s ease;
+  }
+  
+  .nav-link-custom:hover {
+    color: #8f94fb !important;
+    text-decoration: underline;
+  }
+  
+  /* Bouton de recherche */
+  .search-btn {
+    background-color: #8f94fb;
+    border: none;
+    color: white;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+  }
+  
+  .search-btn:hover {
+    background-color: #4e54c8;
+    color: #ffffff;
+  }
+  
+  /* Input de recherche */
+  .search-input {
+    border-radius: 5px;
+    border: 2px solid #8f94fb;
+    padding: 0.5rem;
+  }
+  
+  /* Police pour la page entière */
+  body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    color: white;
+  }
+  
