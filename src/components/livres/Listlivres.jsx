@@ -1,5 +1,6 @@
 import axios from 'axios'; 
 import React, { useEffect, useState } from 'react'
+import Table from 'react-bootstrap/Table';
 const Listlivres = () => { 
     const[livres,setLivres]=useState([]); 
      
@@ -22,7 +23,7 @@ useEffect(() => {
   return (
     <div>
         <h2>Liste des Livres </h2> 
-        <table className='table table table-striped'> 
+        <Table striped bordered hover size="sm"> 
           <thead> 
             <tr> 
             <td>Titre</td> 
@@ -55,7 +56,7 @@ useEffect(() => {
         ) 
     } 
     </tbody> 
-    </table>  
+    </Table>  
     </div>
   )
 }

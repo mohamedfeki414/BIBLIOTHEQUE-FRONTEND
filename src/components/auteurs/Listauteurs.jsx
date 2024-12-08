@@ -1,6 +1,6 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
-
+import Table from 'react-bootstrap/Table';
 const Listauteurs = () => {
     const[auteurs,SetAuteurs]=useState([]);
     const getLivres=async()=>{
@@ -19,7 +19,7 @@ const Listauteurs = () => {
   return (
     <div>
       <h1>Listes Des Auteurs</h1>
-      <table className='table table table-striped'>
+      <Table striped bordered hover size="sm">
         <thead>
             <tr>
                 <td>id</td>
@@ -46,7 +46,7 @@ const Listauteurs = () => {
             }
         </tbody>
 
-      </table>
+      </Table>
     </div>
   )
 }
