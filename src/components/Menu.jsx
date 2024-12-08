@@ -17,7 +17,7 @@ const Menu = () => {
             <Nav.Link as={Link} to="/livres">Livres</Nav.Link>
             <Nav.Link as={Link} to="/auteurs">Auteurs</Nav.Link>
             <Nav.Link as={Link} to="/editeurs">Éditeurs</Nav.Link>
-            <Nav.Link as={Link} to="/specialistes">Spécialistes</Nav.Link>
+            <Nav.Link as={Link} to="/specialites">Spécialistes</Nav.Link>
           </Nav>
           <Form className="d-flex">
             <FormControl
