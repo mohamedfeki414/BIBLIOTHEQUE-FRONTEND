@@ -2,10 +2,11 @@ import React from 'react';
 import { Nav, Navbar, Container, Form, FormControl, Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { FaBook, FaSearch } from 'react-icons/fa';
+import './Menu.css'; // Importez le fichier CSS personnalisé
 
 const Menu = () => {
   return (
-    <Navbar bg="primary" variant="dark" expand="lg" className="shadow-sm">
+    <Navbar variant="dark" expand="lg" className="navbar-custom">
       <Container>
         <Navbar.Brand as={Link} to="/">
           <FaBook className="me-2" />
@@ -38,4 +39,3 @@ const Menu = () => {
 };
 
 export default Menu;
-
