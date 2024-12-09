@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 const Home = () => {
   return (
     <section className="menu-body">
-      <div className="text-center py-5" style={{ width: '100%' }}>
+      <div className="text-center py-5" >
         <h1>Bienvenue à la Bibliothèque</h1>
         <p className="lead">
           Explorez une vaste collection de livres, rencontrez des auteurs fascinants et découvrez de nouvelles spécialités.
