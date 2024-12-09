@@ -5,6 +5,7 @@ import Menu from "./components/Menu";
 import Listauteurs from "./components/auteurs/Listauteurs";
 import Listediteurs from "./components/editeurs/Listediteurs";
 import Listspecialites from "./components/specialites/Listspecialites";
+import Home from "./components/Home";
 
 const App=() => {
   
@@ -19,6 +20,7 @@ const App=() => {
             <Route path="/auteurs" element={<Listauteurs/>} />
             <Route path="/editeurs" element={<Listediteurs/>} />
             <Route path="/specialites" element={<Listspecialites/>} />
+            <Route path="/accu" element={<Home/>} />
           </Routes>
         </Router>
 

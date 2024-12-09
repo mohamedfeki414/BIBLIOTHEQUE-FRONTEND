@@ -6,9 +6,10 @@ import './Menu.css'; // Importez le fichier CSS personnalisé
 
 const Menu = () => {
   return (
+   
     <Navbar variant="dark" expand="lg" className="navbar-custom">
       <Container>
-        <Navbar.Brand as={Link} to="/">
+        <Navbar.Brand as={Link} to="accu">
           <FaBook className="me-2" />
           GESTION BIBLIOTHEQUE 
         </Navbar.Brand>
@@ -35,7 +36,8 @@ const Menu = () => {
         </Navbar.Collapse>
       </Container>
     </Navbar>
-  );
+    
+  ) 
 };
 
 export default Menu;
