@@ -27,6 +27,7 @@ useEffect(() => {
           <thead> 
             <tr> 
             <td>Titre</td> 
+            <td> isbn</td>
             <td>Couverture</td>
             <td>Année d'édition</td>
             <td>Prix</td>
@@ -42,7 +43,8 @@ useEffect(() => {
         { livres && 
             livres.map((cat,index) => 
        <tr key={index}> 
-         <td>{cat.titre}</td> 
+         <td>{cat.titre}</td>
+         <td>{cat.isbn}</td> 
          <td><img src={cat.couverture} width={100} height={100}/></td>
          <td>{cat.annedition}</td>
          <td>{cat.prix}</td>
