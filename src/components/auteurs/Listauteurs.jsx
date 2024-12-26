@@ -8,7 +8,7 @@ const Listauteurs = () => {
         .then(res=>{
             SetAuteurs(res.data)
         })
-        .catch .catch(error=>{ 
+        .catch(error=>{ 
             console.log(error) 
           }) 
         } 
