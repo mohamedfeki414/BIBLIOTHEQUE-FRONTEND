@@ -2,6 +2,7 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import Table from 'react-bootstrap/Table';
 import { Link } from 'react-router-dom';
+import { Button } from 'react-bootstrap'
 
 
 const Listauteurs = () => {
@@ -32,6 +33,12 @@ const Listauteurs = () => {
   return (
     <div>
       <h1>Listes Des Auteurs</h1>
+      <Link to="/auteurs/add">
+        <Button variant="success" style={{ backgroundColor: 'green' }}>
+        <i class="fa-solid fa-square-plus"  style={{color: "#fcfcfd"}}></i>
+        Nouveau
+        </Button>
+        </Link>
       <Table striped bordered hover size="sm">
         <thead>
           <tr>
