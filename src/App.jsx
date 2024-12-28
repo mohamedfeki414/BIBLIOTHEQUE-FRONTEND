@@ -8,6 +8,8 @@ import Listspecialites from "./components/specialites/Listspecialites";
 import Home from "./components/Home";
 import Editauteurs from "./components/auteurs/Editauteurs";
 import Insertauteurs from "./components/auteurs/Insertauteurs";
+import Editediteurs from "./components/editeurs/Editediteurs";
+import Insertediteurs from "./components/editeurs/Insertediteurs";
 
 const App=() => {
   
@@ -25,6 +27,9 @@ const App=() => {
             <Route path="/auteurs/add" element={<Insertauteurs/>}/> 
 
             <Route path="/editeurs" element={<Listediteurs/>} />
+            <Route path="/editeurs/edit/:id" element={<Editediteurs/>} />
+            <Route path="/editeurs/add" element={<Insertediteurs/>} />
+
             <Route path="/specialites" element={<Listspecialites/>} />
 
             <Route path="/accu" element={<Home/>} />
