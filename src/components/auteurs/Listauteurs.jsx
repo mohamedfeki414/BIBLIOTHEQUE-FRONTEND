@@ -49,16 +49,9 @@ const Listauteurs = () => {
                 <td>{cat.nomauteur}</td>
                 <td>{cat.email}</td>
                 <td>{cat.numtel}</td>
+                <td><Link to={`/auteurs/edit/${cat._id}`}><button className='btn btn-warning btn-sm'><i class="fa-solid fa-pen"></i>Update</button></Link></td>
                 <td>
-                  <button className="btn btn-warning btn-sm">Update</button>
-                </td>
-                <td>
-                  <button
-                    className="btn btn-danger btn-sm"
-                    onClick={() => handleDelete(cat._id)}
-                  >
-                    <i className="fa-solid fa-trash"></i>Delete
-                  </button>
+                  <button className="btn btn-danger btn-sm" onClick={() => handleDelete(cat._id)}> <i className="fa-solid fa-trash"></i>Delete</button>
                 </td>
               </tr>
             ))}
