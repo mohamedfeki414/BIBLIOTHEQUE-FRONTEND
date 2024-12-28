@@ -10,7 +10,7 @@ const Editauteurs = () => {
 
   const getLivres = async (id) => {
     try {
-      const res = await axios.get("http://localhost:5000/api/auteurs");
+      const res = await axios.get(`http://localhost:5000/api/auteurs/${id}`);
       SetAuteurs(res.data);
     } catch (error) {
       console.log(error);
@@ -50,8 +50,19 @@ const Editauteurs = () => {
                 <Form.Control 
                     type="text" 
                     placeholder="email"
-                    value={nomauteur.email}
+                    value={auteurs.email}
                     onChange={(e) =>  SetAuteurs({ ...auteurs, email: e.target.value })}
+                />
+            </Form.Group>
+        </Row>
+        <Row>
+            <Form.Group as={Col} mb="6">
+                <Form.Label>Num Tel</Form.Label>
+                <Form.Control 
+                    type="text" 
+                    placeholder="numtel"
+                    value={auteurs.numtel}
+                    onChange={(e) =>  SetAuteurs({ ...auteurs, numtel: e.target.value })}
                 />
             </Form.Group>
         </Row>

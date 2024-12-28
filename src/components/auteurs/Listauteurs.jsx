@@ -1,6 +1,8 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import Table from 'react-bootstrap/Table';
+import { Link } from 'react-router-dom';
+
 
 const Listauteurs = () => {
   const [auteurs, SetAuteurs] = useState([]);
@@ -49,7 +51,7 @@ const Listauteurs = () => {
                 <td>{cat.nomauteur}</td>
                 <td>{cat.email}</td>
                 <td>{cat.numtel}</td>
-                <td><Link to={`/auteurs/edit/${cat._id}`}><button className='btn btn-warning btn-sm'><i class="fa-solid fa-pen"></i>Update</button></Link></td>
+                <td><Link to={`/auteurs/edit/${cat._id}`}><button className='btn btn-warning btn-sm'><i className="fa-solid fa-pen"></i>Update</button></Link></td>
                 <td>
                   <button className="btn btn-danger btn-sm" onClick={() => handleDelete(cat._id)}> <i className="fa-solid fa-trash"></i>Delete</button>
                 </td>
