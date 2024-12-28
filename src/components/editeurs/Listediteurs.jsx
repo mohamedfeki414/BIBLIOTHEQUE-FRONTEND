@@ -1,6 +1,8 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import Table from 'react-bootstrap/Table';
+import { Link } from 'react-router-dom';
+import { Button } from 'react-bootstrap'
 
 const Listediteurs = () => {
   const[editeurs,SetEditeurs]=useState([]);
@@ -39,8 +41,10 @@ const Listediteurs = () => {
                     <td>{cat.maisonedit}</td>
                     <td>{cat.siteweb}</td>
                     <td>{cat.email}</td>
-                    <td><button className='btn btn-warning btn-sm'>Update</button></td> 
-                    <td><button className='btn btn-danger btn-sm'>Delete</button></td>
+                    <td><Link to={`/editeurs/edit/${cat._id}`}><button className='btn btn-warning btn-sm'><i className="fa-solid fa-pen"></i>Update</button></Link></td>
+                <td>
+                  <button className="btn btn-danger btn-sm" onClick={() => handleDelete(cat._id)}> <i className="fa-solid fa-trash"></i>Delete</button>
+                </td>
          
                 </tr>
             )    
