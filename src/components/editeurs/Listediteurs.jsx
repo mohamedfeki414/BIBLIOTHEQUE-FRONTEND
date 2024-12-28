@@ -18,9 +18,23 @@ const Listediteurs = () => {
         useEffect(()=>{
             getEditeurs()
         },[])
+        const handleDelete = async (id) => {
+          try {
+            await axios.delete(`http://localhost:5000/api/editeurs/${id}`);
+            SetAuteurs(auteurs.filter((c) => c._id !== id));
+          } catch (error) {
+            console.log(error);
+          }
+        };
   return (
     <div>
       <h1>Listes Des Editeurs</h1>
+      <Link to="/editeurs/add">
+              <Button variant="success" style={{ backgroundColor: 'green' }}>
+              <i class="fa-solid fa-square-plus"  style={{color: "#fcfcfd"}}></i>
+              Nouveau
+              </Button>
+              </Link>
       <Table striped bordered hover size="sm">
         <thead>
             <tr>
