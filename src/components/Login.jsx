@@ -1,0 +1,56 @@
+import React, { useState } from 'react';
+import axios from 'axios';
+
+const Login = () => {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [error, setError] = useState('');
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    try {
+      const response = await axios.post(
+        'http://localhost:5000/api/users/login',
+        { email, password },
+        { withCredentials: true }
+      );
+
+      console.log('Réponse du serveur:', response.data);
+      // Rediriger ou faire autre chose après connexion réussie
+    } catch (error) {
+      setError('Email ou mot de passe incorrect');
+      console.error('Erreur de connexion:', error);
+    }
+  };
+
+  return (
+    <div>
+      <h2>Connexion</h2>
+      <form onSubmit={handleSubmit}>
+        <div>
+          <label>Email:</label>
+          <input
+            type="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            required
+          />
+        </div>
+        <div>
+          <label>Mot de passe:</label>
+          <input
+            type="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            required
+          />
+        </div>
+        {error && <div style={{ color: 'red' }}>{error}</div>}
+        <button type="submit">Se connecter</button>
+      </form>
+    </div>
+  );
+};
+
+export default Login;

@@ -12,6 +12,7 @@ import Editediteurs from "./components/editeurs/Editediteurs";
 import Insertediteurs from "./components/editeurs/Insertediteurs";
 import Editspecialites from "./components/specialites/Editspecialites";
 import Insertspecialites from "./components/specialites/Insertspecialites";
+import Login from "./components/Login";
 
 const App=() => {
   
@@ -37,6 +38,7 @@ const App=() => {
             <Route path="/specialites/add" element={<Insertspecialites/>} />
 
             <Route path="/accu" element={<Home/>} />
+            <Route path="/login" element={<Login />} />
           </Routes>
         </Router>
 

@@ -1,10 +1,22 @@
 import React from 'react';
 import { Nav, Navbar, Container, Form, FormControl, Button } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { Link ,useNavigate } from 'react-router-dom';
 import { FaBook, FaSearch } from 'react-icons/fa';
+
 import './Menu.css'; // Importez le fichier CSS personnalisé
 
 const Menu = () => {
+  const navigate = useNavigate();
+
+  const handleLogout = async () => {
+    try {
+      await axios.post('http://localhost:5000/api/logout', {}, { withCredentials: true });
+      alert('Déconnexion réussie');
+      navigate('/login');
+    } catch (error) {
+      alert('Erreur lors de la déconnexion');
+    }
+  };
   return (
    
     <Navbar variant="dark" expand="lg" className="navbar-custom">
@@ -32,6 +44,8 @@ const Menu = () => {
               <FaSearch className="me-1" />
               Chercher
             </Button>
+            <button onClick={() => navigate('/accu')}>Accueil</button>
+            <button onClick={handleLogout}>Déconnexion</button>
           </Form>
         </Navbar.Collapse>
       </Container>
