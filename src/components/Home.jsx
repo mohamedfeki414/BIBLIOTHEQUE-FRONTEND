@@ -10,7 +10,7 @@ const Home = () => {
         <p className="lead">
           Explorez une vaste collection de livres, rencontrez des auteurs fascinants et découvrez de nouvelles spécialités.
         </p>
-        <Button as={Link} to="/auteurs" variant="primary" size="lg" className="mt-3">
+        <Button as={Link} to="/livres" variant="primary" size="lg" className="mt-3">
           Explorer maintenant
         </Button>
       </div>
