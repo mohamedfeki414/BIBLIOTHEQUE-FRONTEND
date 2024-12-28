@@ -17,7 +17,13 @@ const Listspecialites = () => {
         },[])
   return (
     <div>
-      <h1>Listes Des Editeurs</h1>
+      <h1>Listes Des Specialites</h1>
+      <Link to="/editeurs/add">
+              <Button variant="success" style={{ backgroundColor: 'green' }}>
+              <i className="fa-solid fa-square-plus"  style={{color: "#fcfcfd"}}></i>
+              Nouveau
+              </Button>
+              </Link>
       <Table striped bordered hover size="sm">
         <thead>
             <tr>
@@ -34,8 +40,10 @@ const Listspecialites = () => {
                 <tr key={index} >
                     <td>{cat._id}</td>
                     <td>{cat.nomspecialite}</td>
-                    <td><button className='btn btn-warning btn-sm'>Update</button></td> 
-                    <td><button className='btn btn-danger btn-sm'>Delete</button></td>
+                    <td><Link to={`/editeurs/edit/${cat._id}`}><button className='btn btn-warning btn-sm'><i className="fa-solid fa-pen"></i>Update</button></Link></td>
+                <td>
+                  <button className="btn btn-danger btn-sm" onClick={() => handleDelete(cat._id)}> <i className="fa-solid fa-trash"></i>Delete</button>
+                </td>
          
                 </tr>
             )    
