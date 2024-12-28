@@ -1,4 +1,4 @@
-
+import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import { Form, Col, Row } from 'react-bootstrap'
 import { useNavigate, useParams } from 'react-router-dom'
@@ -71,7 +71,7 @@ const Editauteurs = () => {
         <i className="fa-solid fa-floppy-disk"></i> Save
     </button>
     &nbsp;
-    <button className="btn btn-danger btn-sm" onClick={() => navigate("/categories")}>
+    <button className="btn btn-danger btn-sm" onClick={() => navigate("/auteurs")}>
         <i className="fa-solid fa-person-walking-arrow-right"></i> Exit
     </button>
 </div>
