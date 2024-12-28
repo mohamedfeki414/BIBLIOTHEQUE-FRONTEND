@@ -42,7 +42,7 @@ const Listauteurs = () => {
       <Table striped bordered hover size="sm">
         <thead>
           <tr>
-            <td>id</td>
+            
             <td>Nom Auteur</td>
             <td>Email</td>
             <td>Num tel</td>
@@ -54,7 +54,7 @@ const Listauteurs = () => {
           {auteurs &&
             auteurs.map((cat, index) => (
               <tr key={index}>
-                <td>{cat._id}</td>
+                
                 <td>{cat.nomauteur}</td>
                 <td>{cat.email}</td>
                 <td>{cat.numtel}</td>

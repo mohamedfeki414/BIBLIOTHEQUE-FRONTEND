@@ -40,7 +40,7 @@ const Listediteurs = () => {
       <Table striped bordered hover size="sm">
         <thead>
             <tr>
-                <td>id</td>
+                
                 <td>Maison Edition</td>
                 <td>SiteWeb</td>
                 <td>Email</td>
@@ -53,7 +53,7 @@ const Listediteurs = () => {
             {
                 editeurs && editeurs.map((cat,index)=>
                 <tr key={index} >
-                    <td>{cat._id}</td>
+                    
                     <td>{cat.maisonedit}</td>
                     <td>{cat.siteweb}</td>
                     <td>{cat.email}</td>
