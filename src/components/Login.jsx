@@ -18,9 +18,10 @@ const Login = () => {
 
       console.log('Réponse du serveur:', response.data);
       // Rediriger ou faire autre chose après connexion réussie
-    } catch (error) {
-      setError('Email ou mot de passe incorrect');
-      console.error('Erreur de connexion:', error);
+      alert('Connexion réussie !');
+    } catch (err) {
+      setError(err.response?.data?.message || 'Une erreur est survenue');
+      console.error('Erreur de connexion:', err);
     }
   };
 

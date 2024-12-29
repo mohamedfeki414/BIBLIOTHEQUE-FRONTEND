@@ -1,4 +1,4 @@
-import { BrowserRouter as Router,Routes, Route } from "react-router-dom"; 
+import { BrowserRouter as Router,Routes, Route,Navigate } from "react-router-dom"; 
 import './App.css'
 import Listlivres from './components/livres/Listlivres'
 import Menu from "./components/Menu";
@@ -23,6 +23,7 @@ const App=() => {
         <Router>
           <Menu/>
           <Routes>
+          <Route path="/" element={<Navigate to="/login" replace />} />
             <Route path="/livres" element={<Listlivres/>} />
             
             <Route path="/auteurs" element={<Listauteurs/>} />
