@@ -13,6 +13,8 @@ import Insertediteurs from "./components/editeurs/Insertediteurs";
 import Editspecialites from "./components/specialites/Editspecialites";
 import Insertspecialites from "./components/specialites/Insertspecialites";
 import Login from "./components/Login";
+import Editlivres from "./components/livres/Editlivres";
+import Insertlivres from "./components/livres/Insertlivres";
 
 const App=() => {
   
@@ -25,6 +27,8 @@ const App=() => {
           <Routes>
           <Route path="/" element={<Navigate to="/login" replace />} />
             <Route path="/livres" element={<Listlivres/>} />
+            <Route path="/livres/edit/:id" element={<Editlivres/>} />
+            <Route path="/livres/add" element={<Insertlivres/>} />
             
             <Route path="/auteurs" element={<Listauteurs/>} />
             <Route path="/auteurs/edit/:id" element={<Editauteurs/>}/>

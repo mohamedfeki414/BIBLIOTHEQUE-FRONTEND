@@ -20,6 +20,14 @@ useEffect(() => {
     getLivres() 
      },[]) 
 //useAuth();
+const handleDelete = async (id) => {
+  try {
+    await axios.delete(`http://localhost:5000/api/livres/${id}`);
+    setLivres(livres.filter((c) => c._id !== id));
+  } catch (error) {
+    console.log(error);
+  }
+};
 
 
   return (
@@ -54,8 +62,10 @@ useEffect(() => {
          <td>{cat.specialite?.nomspecialite}</td>
          <td>{cat.maised?.maisonedit}</td>
          <td>{cat.auteurs[0]?.nomauteur}</td>
-         <td><button className='btn btn-warning btn-sm'>Update</button></td> 
-         <td><button className='btn btn-danger btn-sm'>Delete</button></td>
+         <td><Link to={`/livres/edit/${cat._id}`}><button className='btn btn-warning btn-sm'><i className="fa-solid fa-pen"></i>Update</button></Link></td>
+                <td>
+                  <button className="btn btn-danger btn-sm" onClick={() => handleDelete(cat._id)}> <i className="fa-solid fa-trash"></i>Delete</button>
+                </td>
         </tr> 
         ) 
     } 
