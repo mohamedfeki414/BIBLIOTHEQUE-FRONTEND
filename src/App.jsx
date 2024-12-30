@@ -15,6 +15,7 @@ import Insertspecialites from "./components/specialites/Insertspecialites";
 import Login from "./components/Login";
 import Editlivres from "./components/livres/Editlivres";
 import Insertlivres from "./components/livres/Insertlivres";
+import Listlivrestable from "./components/livres/Listlivrestable";
 
 const App=() => {
   
@@ -44,6 +45,8 @@ const App=() => {
 
             <Route path="/accu" element={<Home/>} />
             <Route path="/login" element={<Login />} />
+            <Route path="/Cart" element={<Cart/>}></Route>
+            <Route path="/listlivres" element={<Listlivrestable />} />
           </Routes>
         </Router>
 
