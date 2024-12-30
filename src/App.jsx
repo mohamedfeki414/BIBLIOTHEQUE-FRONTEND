@@ -12,26 +12,10 @@ import Editediteurs from "./components/editeurs/Editediteurs";
 import Insertediteurs from "./components/editeurs/Insertediteurs";
 import Editspecialites from "./components/specialites/Editspecialites";
 import Insertspecialites from "./components/specialites/Insertspecialites";
-import Login from "./components/Login";
 import Editlivres from "./components/livres/Editlivres";
 import Insertlivres from "./components/livres/Insertlivres";
 import Listlivrestable from "./components/livres/Listlivrestable";
 import Cart from "./components/users/Cart";
-
-// Fonction pour vérifier si l'utilisateur est connecté
-const isAuthenticated = () => {
-  return localStorage.getItem('authToken'); // ou utilise un contexte d'authentification
-}
-
-// Composant pour protéger les routes
-const ProtectedRoute = ({ element, ...rest }) => {
-  return (
-    <Route
-      {...rest}
-      element={isAuthenticated() ? element : <Navigate to="/login" replace />}
-    />
-  );
-}
 
 const App = () => {
   return (
@@ -39,35 +23,28 @@ const App = () => {
       <Router>
         <Menu />
         <Routes>
-          {/* Route de redirection vers la page de login si l'utilisateur n'est pas authentifié */}
           <Route path="/" element={<Navigate to="/login" replace />} />
+          <Route path="/livres" element={<Listlivres />} />
+          <Route path="/livres/edit/:id" element={<Editlivres />} />
+          <Route path="/livres/add" element={<Insertlivres />} />
+          <Route path="/listlivres" element={<Listlivrestable />} />
           
-          {/* Routes publiques */}
-          <Route path="/login" element={<Login />} />
+          <Route path="/auteurs" element={<Listauteurs />} />
+          <Route path="/auteurs/edit/:id" element={<Editauteurs />} />
+          <Route path="/auteurs/add" element={<Insertauteurs />} />
           
-          {/* Routes protégées (requièrent une authentification) */}
-          <ProtectedRoute path="/livres" element={<Listlivres />} />
-          <ProtectedRoute path="/livres/edit/:id" element={<Editlivres />} />
-          <ProtectedRoute path="/livres/add" element={<Insertlivres />} />
-          <ProtectedRoute path="/listlivres" element={<Listlivrestable />} />
+          <Route path="/editeurs" element={<Listediteurs />} />
+          <Route path="/editeurs/edit/:id" element={<Editediteurs />} />
+          <Route path="/editeurs/add" element={<Insertediteurs />} />
           
-          <ProtectedRoute path="/auteurs" element={<Listauteurs />} />
-          <ProtectedRoute path="/auteurs/edit/:id" element={<Editauteurs />} />
-          <ProtectedRoute path="/auteurs/add" element={<Insertauteurs />} />
+          <Route path="/specialites" element={<Listspecialites />} />
+          <Route path="/specialites/edit/:id" element={<Editspecialites />} />
+          <Route path="/specialites/add" element={<Insertspecialites />} />
           
-          <ProtectedRoute path="/editeurs" element={<Listediteurs />} />
-          <ProtectedRoute path="/editeurs/edit/:id" element={<Editediteurs />} />
-          <ProtectedRoute path="/editeurs/add" element={<Insertediteurs />} />
+          <Route path="/accu" element={<Home />} />
+          <Route path="/Cart" element={<Cart />} />
           
-          <ProtectedRoute path="/specialites" element={<Listspecialites />} />
-          <ProtectedRoute path="/specialites/edit/:id" element={<Editspecialites />} />
-          <ProtectedRoute path="/specialites/add" element={<Insertspecialites />} />
           
-          <ProtectedRoute path="/accu" element={<Home />} />
-          <ProtectedRoute path="/Cart" element={<Cart />} />
-          
-          {/* Route de secours pour les pages non trouvées */}
-          <Route path="*" element={<div>Page non trouvée</div>} />
         </Routes>
       </Router>
     </div>

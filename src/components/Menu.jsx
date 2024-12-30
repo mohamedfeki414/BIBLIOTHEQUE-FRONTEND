@@ -9,17 +9,9 @@ import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import { useShoppingCart } from 'use-shopping-cart';
 import './Menu.css'; // Importation du fichier CSS personnalisé
 
-const StyledBadge = styled(Badge)(({ theme }) => ({
-  '& .MuiBadge-badge': {
-    right: -3,
-    top: 13,
-    border: `2px solid ${theme.palette.background.paper}`,
-    padding: '0 4px',
-  },
-}));
 
 const Menu = () => {
-  const { cartCount } = useShoppingCart() || { cartCount: 0 }; // Ajout d'une valeur par défaut pour éviter les erreurs
+
   const navigate = useNavigate();
 
   // Fonction pour gérer la déconnexion
@@ -43,13 +35,7 @@ const Menu = () => {
             <Nav.Link as={Link} to="/editeurs">Éditeurs</Nav.Link>
             <Nav.Link as={Link} to="/specialites">Spécialités</Nav.Link>
             <Nav.Link as={Link} to="/listlivres">Livres Table</Nav.Link>
-            <Nav.Link as={Link} to="/cart">
-              <IconButton aria-label="cart">
-                <StyledBadge badgeContent={cartCount} color="secondary">
-                  <ShoppingCartIcon />
-                </StyledBadge>
-              </IconButton>
-            </Nav.Link>
+           
           </Nav>
           <Form className="d-flex">
             <FormControl
