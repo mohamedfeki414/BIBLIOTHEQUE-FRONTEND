@@ -1,6 +1,6 @@
 import React from 'react';
 import { Nav, Navbar, Container, Form, FormControl, Button } from 'react-bootstrap';
-import { Link ,useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { FaBook, FaSearch } from 'react-icons/fa';
 import Badge from '@mui/material/Badge';
 import { styled } from '@mui/material/styles';
@@ -8,7 +8,8 @@ import IconButton from '@mui/material/IconButton';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import { useShoppingCart } from 'use-shopping-cart';
 
-import './Menu.css'; // Importez le fichier CSS personnalisé
+import './Menu.css'; // Importation du fichier CSS personnalisé
+
 const StyledBadge = styled(Badge)(({ theme }) => ({
   '& .MuiBadge-badge': {
     right: -3,
@@ -17,8 +18,9 @@ const StyledBadge = styled(Badge)(({ theme }) => ({
     padding: '0 4px',
   },
 }));
+
 const Menu = () => {
-  const {cartCount=0}=useShoppingCart();
+  const { cartCount = 0 } = useShoppingCart() || { cartCount: 0 }; // Ajout d'une valeur par défaut
   const navigate = useNavigate();
 
   const handleLogout = async () => {
@@ -30,13 +32,13 @@ const Menu = () => {
       alert('Erreur lors de la déconnexion');
     }
   };
+
   return (
-   
     <Navbar variant="dark" expand="lg" className="navbar-custom">
       <Container>
-        <Navbar.Brand as={Link} to="accu">
+        <Navbar.Brand as={Link} to="/accu">
           <FaBook className="me-2" />
-          GESTION BIBLIOTHEQUE 
+          GESTION BIBLIOTHÈQUE
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
@@ -44,15 +46,15 @@ const Menu = () => {
             <Nav.Link as={Link} to="/livres">Livres</Nav.Link>
             <Nav.Link as={Link} to="/auteurs">Auteurs</Nav.Link>
             <Nav.Link as={Link} to="/editeurs">Éditeurs</Nav.Link>
-            <Nav.Link as={Link} to="/specialites">Spécialité</Nav.Link>
-            <Nav.Link as={Link} to="/listlivres">livres Table</Nav.Link>
+            <Nav.Link as={Link} to="/specialites">Spécialités</Nav.Link>
+            <Nav.Link as={Link} to="/listlivres">Livres Table</Nav.Link>
             <Nav.Link as={Link} to="/Cart">
-            <IconButton aria-label="cart">
-                  <StyledBadge badgeContent={cartCount} color="secondary">
-                    <ShoppingCartIcon />
-                  </StyledBadge>
-                </IconButton>
-              </Nav.Link>
+              <IconButton aria-label="cart">
+                <StyledBadge badgeContent={cartCount} color="secondary">
+                  <ShoppingCartIcon />
+                </StyledBadge>
+              </IconButton>
+            </Nav.Link>
           </Nav>
           <Form className="d-flex">
             <FormControl
@@ -61,18 +63,21 @@ const Menu = () => {
               className="me-2"
               aria-label="Search"
             />
-            <Button variant="success">
+            <Button variant="success" className="me-2">
               <FaSearch className="me-1" />
               Chercher
             </Button>
-            <button onClick={() => navigate('/accu')}>Accueil</button>
-            <button onClick={handleLogout}>Déconnexion</button>
+            <Button variant="outline-primary" onClick={() => navigate('/accu')} className="me-2">
+              Accueil
+            </Button>
+            <Button variant="outline-danger" onClick={handleLogout}>
+              Déconnexion
+            </Button>
           </Form>
         </Navbar.Collapse>
       </Container>
     </Navbar>
-    
-  ) 
+  );
 };
 
 export default Menu;
