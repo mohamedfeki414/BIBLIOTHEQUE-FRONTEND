@@ -22,18 +22,7 @@ const Menu = () => {
   const { cartCount } = useShoppingCart() || { cartCount: 0 }; // Ajout d'une valeur par défaut pour éviter les erreurs
   const navigate = useNavigate();
 
-  const handleLogout = async () => {
-    try {
-      await fetch('http://localhost:5000/api/logout', {
-        method: 'POST',
-        credentials: 'include',
-      });
-      alert('Déconnexion réussie');
-      navigate('/login');
-    } catch (error) {
-      alert('Erreur lors de la déconnexion');
-    }
-  };
+ 
 
   return (
     <Navbar variant="dark" expand="lg" className="navbar-custom">
