@@ -7,7 +7,6 @@ import { styled } from '@mui/material/styles';
 import IconButton from '@mui/material/IconButton';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import { useShoppingCart } from 'use-shopping-cart';
-
 import './Menu.css'; // Importation du fichier CSS personnalisé
 
 const StyledBadge = styled(Badge)(({ theme }) => ({
@@ -20,12 +19,15 @@ const StyledBadge = styled(Badge)(({ theme }) => ({
 }));
 
 const Menu = () => {
-  const { cartCount = 0 } = useShoppingCart() || { cartCount: 0 }; // Ajout d'une valeur par défaut
+  const { cartCount } = useShoppingCart() || { cartCount: 0 }; // Ajout d'une valeur par défaut pour éviter les erreurs
   const navigate = useNavigate();
 
   const handleLogout = async () => {
     try {
-      await axios.post('http://localhost:5000/api/logout', {}, { withCredentials: true });
+      await fetch('http://localhost:5000/api/logout', {
+        method: 'POST',
+        credentials: 'include',
+      });
       alert('Déconnexion réussie');
       navigate('/login');
     } catch (error) {
@@ -48,7 +50,7 @@ const Menu = () => {
             <Nav.Link as={Link} to="/editeurs">Éditeurs</Nav.Link>
             <Nav.Link as={Link} to="/specialites">Spécialités</Nav.Link>
             <Nav.Link as={Link} to="/listlivres">Livres Table</Nav.Link>
-            <Nav.Link as={Link} to="/Cart">
+            <Nav.Link as={Link} to="/cart">
               <IconButton aria-label="cart">
                 <StyledBadge badgeContent={cartCount} color="secondary">
                   <ShoppingCartIcon />
