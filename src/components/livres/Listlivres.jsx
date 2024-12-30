@@ -1,6 +1,8 @@
 import axios from 'axios'; 
 import React, { useEffect, useState } from 'react'
 import Table from 'react-bootstrap/Table';
+import { Link } from 'react-router-dom';
+import { Button } from 'react-bootstrap'
 //import useAuth from '../../hooks/useAuth';
 const Listlivres = () => { 
     const[livres,setLivres]=useState([]); 
@@ -33,6 +35,12 @@ const handleDelete = async (id) => {
   return (
     <div>
         <h2>Liste des Livres </h2> 
+        <Link to="/livres/add">
+                      <Button variant="success" style={{ backgroundColor: 'green' }}>
+                      <i className="fa-solid fa-square-plus"  style={{color: "#fcfcfd"}}></i>
+                      Nouveau
+                      </Button>
+                      </Link>
         <Table striped bordered hover size="sm"> 
           <thead> 
             <tr> 
