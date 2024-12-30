@@ -1,6 +1,6 @@
-import { BrowserRouter as Router,Routes, Route,Navigate } from "react-router-dom"; 
-import './App.css'
-import Listlivres from './components/livres/Listlivres'
+import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
+import './App.css';
+import Listlivres from './components/livres/Listlivres';
 import Menu from "./components/Menu";
 import Listauteurs from "./components/auteurs/Listauteurs";
 import Listediteurs from "./components/editeurs/Listediteurs";
@@ -18,43 +18,60 @@ import Insertlivres from "./components/livres/Insertlivres";
 import Listlivrestable from "./components/livres/Listlivrestable";
 import Cart from "./components/users/Cart";
 
-const App=() => {
-  
+// Fonction pour vérifier si l'utilisateur est connecté
+const isAuthenticated = () => {
+  return localStorage.getItem('authToken'); // ou utilise un contexte d'authentification
+}
 
+// Composant pour protéger les routes
+const ProtectedRoute = ({ element, ...rest }) => {
   return (
-    
-      <div> 
-        <Router>
-          <Menu/>
-          <Routes>
-          <Route path="/" element={<Navigate to="/login" replace />} />
-            <Route path="/livres" element={<Listlivres/>} />
-            <Route path="/livres/edit/:id" element={<Editlivres/>} />
-            <Route path="/livres/add" element={<Insertlivres/>} />
-            
-            <Route path="/auteurs" element={<Listauteurs/>} />
-            <Route path="/auteurs/edit/:id" element={<Editauteurs/>}/>
-            <Route path="/auteurs/add" element={<Insertauteurs/>}/> 
-
-            <Route path="/editeurs" element={<Listediteurs/>} />
-            <Route path="/editeurs/edit/:id" element={<Editediteurs/>} />
-            <Route path="/editeurs/add" element={<Insertediteurs/>} />
-
-            <Route path="/specialites" element={<Listspecialites/>} />
-            <Route path="/specialites/edit/:id" element={<Editspecialites/>} />
-            <Route path="/specialites/add" element={<Insertspecialites/>} />
-
-            <Route path="/accu" element={<Home/>} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/Cart" element={<Cart/>}></Route>
-            <Route path="/listlivres" element={<Listlivrestable />} />
-          </Routes>
-        </Router>
-
-      </div>
-        
-   
+    <Route
+      {...rest}
+      element={isAuthenticated() ? element : <Navigate to="/login" replace />}
+    />
   );
 }
 
-export default App
+const App = () => {
+  return (
+    <div>
+      <Router>
+        <Menu />
+        <Routes>
+          {/* Route de redirection vers la page de login si l'utilisateur n'est pas authentifié */}
+          <Route path="/" element={<Navigate to="/login" replace />} />
+          
+          {/* Routes publiques */}
+          <Route path="/login" element={<Login />} />
+          
+          {/* Routes protégées (requièrent une authentification) */}
+          <ProtectedRoute path="/livres" element={<Listlivres />} />
+          <ProtectedRoute path="/livres/edit/:id" element={<Editlivres />} />
+          <ProtectedRoute path="/livres/add" element={<Insertlivres />} />
+          <ProtectedRoute path="/listlivres" element={<Listlivrestable />} />
+          
+          <ProtectedRoute path="/auteurs" element={<Listauteurs />} />
+          <ProtectedRoute path="/auteurs/edit/:id" element={<Editauteurs />} />
+          <ProtectedRoute path="/auteurs/add" element={<Insertauteurs />} />
+          
+          <ProtectedRoute path="/editeurs" element={<Listediteurs />} />
+          <ProtectedRoute path="/editeurs/edit/:id" element={<Editediteurs />} />
+          <ProtectedRoute path="/editeurs/add" element={<Insertediteurs />} />
+          
+          <ProtectedRoute path="/specialites" element={<Listspecialites />} />
+          <ProtectedRoute path="/specialites/edit/:id" element={<Editspecialites />} />
+          <ProtectedRoute path="/specialites/add" element={<Insertspecialites />} />
+          
+          <ProtectedRoute path="/accu" element={<Home />} />
+          <ProtectedRoute path="/Cart" element={<Cart />} />
+          
+          {/* Route de secours pour les pages non trouvées */}
+          <Route path="*" element={<div>Page non trouvée</div>} />
+        </Routes>
+      </Router>
+    </div>
+  );
+}
+
+export default App;

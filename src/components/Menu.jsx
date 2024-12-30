@@ -22,7 +22,11 @@ const Menu = () => {
   const { cartCount } = useShoppingCart() || { cartCount: 0 }; // Ajout d'une valeur par défaut pour éviter les erreurs
   const navigate = useNavigate();
 
- 
+  // Fonction pour gérer la déconnexion
+  const handleLogout = () => {
+    localStorage.removeItem('authToken'); // Suppression du token d'authentification
+    navigate('/login'); // Redirection vers la page de connexion
+  };
 
   return (
     <Navbar variant="dark" expand="lg" className="navbar-custom">
