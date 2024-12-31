@@ -4,6 +4,7 @@ import {
   useMaterialReactTable,
 } from 'material-react-table';
 import Button from 'react-bootstrap/Button'; 
+import { Link } from 'react-router-dom';
 
 const Affichediteurs = ({editeurs, handleDelete }) => {
     const columns = useMemo(
@@ -24,42 +25,33 @@ const Affichediteurs = ({editeurs, handleDelete }) => {
             size: 200,
           },
         
-          { 
-            accessorKey: '_id', 
-            header: 'actions', 
+          {accessorKey: '_id',
+            header: 'Actions',
             size: 100, 
-            Cell: ({ cell, row }) => ( 
-            <div >
-                
-            <Button 
-            onClick={() => { 
-            
-            }} 
-            variant="warning" 
-            size="md" 
-            className="text-warning btn-link edit" 
-            > 
-            <i class="fa-solid fa-pen-to-square"></i> 
-            </Button> 
-            <Button 
-            onClick={(e) => { 
-              deleteProduct(cell.row.original._id,cell.row.original.reference, 
-e); 
-            }} 
-            variant="danger" 
-            size="md" 
-            className="text-danger btn-link delete" 
-            >
-                  <i className="fa fa-trash" /> 
-            </Button> 
-            </div> 
-            ), 
-            },
+            Cell: ({ row}) => (
+              <div>
+                <Link to={`/editeurs/edit/${row.original._id}`}>
+                  <Button variant="warning" size="sm" className="text-warning btn-link edit">
+                    <i className="fa-solid fa-pen-to-square"></i>
+                  </Button>
+                </Link>
+                <Button
+                  variant="danger"
+                  size="sm"
+                  className="text-danger btn-link delete"
+                  onClick={() => handleDelete(row.original._id)}
+                >
+                  <i className="fa fa-trash" />
+                </Button>
+              </div>
+            ),
+          },
+        ],
+        [handleDelete]
+      );
+    
 
-      
-    ],
-    []
-  );
+  
 
   const table = useMaterialReactTable({
     columns,
