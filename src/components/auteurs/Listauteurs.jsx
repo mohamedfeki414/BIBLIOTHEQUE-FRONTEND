@@ -8,7 +8,7 @@ import { Button } from 'react-bootstrap'
 const Listauteurs = () => {
   const [auteurs, SetAuteurs] = useState([]);
 
-  const getLivres = async () => {
+  const getAuteurs = async () => {
     try {
       const res = await axios.get("http://localhost:5000/api/auteurs");
       SetAuteurs(res.data);
@@ -18,7 +18,7 @@ const Listauteurs = () => {
   };
 
   useEffect(() => {
-    getLivres();
+    getAuteurs();
   }, []);
 
   const handleDelete = async (id) => {

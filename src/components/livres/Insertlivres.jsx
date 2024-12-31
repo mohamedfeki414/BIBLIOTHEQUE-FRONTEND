@@ -8,6 +8,7 @@ const Insertlivres = () => {
   const navigate = useNavigate();
   const [specialities,SetSpecialities] = useState([]);
   const [editeurs, SetEditeurs] = useState([]);
+  const [auteurs, SetAuteurs] = useState([]);
   
 
   const getSpecialities=async()=>{
@@ -33,6 +34,18 @@ const Insertlivres = () => {
     useEffect(()=>{
                 getEditeurs()
             },[])
+            const getAuteurs = async () => {
+              try {
+                const res = await axios.get("http://localhost:5000/api/auteurs");
+                SetAuteurs(res.data);
+              } catch (error) {
+                console.log(error);
+              }
+            };
+          
+            useEffect(() => {
+              getAuteurs();
+            }, []);
   const handleSave = async (e) => {
     e.preventDefault();
     try {
@@ -165,7 +178,7 @@ const Insertlivres = () => {
                       <Form.Group as={Col} className="mb-3">
                         <Form.Label>Auteurs</Form.Label>
                         <Form.Control
-                          type="text"
+                          as="select"
                           placeholder="auteurs"
                           value={livres.auteurs?.nomauteur || ''}
                           onChange={(e) =>
