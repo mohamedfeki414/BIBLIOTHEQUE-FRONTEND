@@ -7,6 +7,7 @@ const Insertlivres = () => {
   const [livres, SetLivres] = useState({});
   const navigate = useNavigate();
   const [specialities,SetSpecialities] = useState([]);
+  const [editeurs, SetEditeurs] = useState([]);
   
 
   const getSpecialities=async()=>{
@@ -21,6 +22,17 @@ const Insertlivres = () => {
     useEffect(()=>{
         getSpecialities()
     },[])
+    const getEditeurs=async()=>{
+      try {
+        const res = await axios.get("http://localhost:5000/api/editeurs");
+        SetEditeurs(res.data);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    useEffect(()=>{
+                getEditeurs()
+            },[])
   const handleSave = async (e) => {
     e.preventDefault();
     try {
@@ -134,13 +146,19 @@ const Insertlivres = () => {
                       <Form.Group as={Col} className="mb-3">
                         <Form.Label>Maison edition</Form.Label>
                         <Form.Control
-                          type="text"
+                          as="select"
                           placeholder="maisonedition"
-                          value={livres.maised?.maisonedit || ''}
-                          onChange={(e) =>
-                            SetLivres({ ...livres, maisonedit: e.target.value })
+                          value={livres.maised || ''}
+                          onChange={(e) => SetLivres({ ...livres, maised: e.target.value })}>
+                             <option value="">Sélectionnez une maison d 'edition</option>
+                            {editeurs.map((scat) => (
+                             <option key={scat._id} value={scat._id}>
+                                {scat.maisonedit}
+                                  </option>
+                              ))
                           }
-                        />
+                          </Form.Control>
+                        
                       </Form.Group>
                     </Row>
                     <Row>
