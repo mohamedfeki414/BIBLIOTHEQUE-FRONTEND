@@ -1,7 +1,8 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import Affichelivres from './Affichelivres';
-
+import { Link } from 'react-router-dom';
+import { Button } from 'react-bootstrap'
 const Listlivrestable = () => {
     const[livres,setLivres]=useState([]); 
      
@@ -29,8 +30,14 @@ const Listlivrestable = () => {
     }
   };
   
-  return (
+  return (    
     <div>
+       <Link to="/livres/add">
+                      <Button variant="success" style={{ backgroundColor: 'green' }}>
+                      <i className="fa-solid fa-square-plus"  style={{color: "#fcfcfd"}}></i>
+                      Nouveau
+                      </Button>
+                      </Link>
        <Affichelivres livres={livres} handleDelete={handleDelete}/>
     </div>
   )
