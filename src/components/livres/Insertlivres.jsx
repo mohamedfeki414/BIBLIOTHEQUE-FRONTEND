@@ -24,7 +24,7 @@ const Insertlivres = () => {
   const handleSave = async (e) => {
     e.preventDefault();
     try {
-      await axios.put("http://localhost:5000/api/livres", livres);
+      await axios.post("http://localhost:5000/api/livres", livres);
       navigate("/livres");
     } catch (error) {
       console.log(error);
