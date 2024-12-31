@@ -182,11 +182,18 @@ const Insertlivres = () => {
                         <Form.Control
                           as="select"
                           placeholder="auteurs"
-                          value={livres.nomauteur || ''}
+                          value={livres.auteurs || ''}
                           onChange={(e) =>
-                            SetLivres({ ...livres, nomauteur: e.target.value })
+                            SetLivres({ ...livres, auteurs: e.target.value })}>
+                              <option value="">Sélectionnez l' auteur</option>
+                            {auteurs.map((scat) => (
+                             <option key={scat._id} value={scat._id}>
+                                {scat.nomauteur}
+                                  </option>
+                              ))
                           }
-                        />
+                            </Form.Control>
+                        
                       </Form.Group>
                     </Row>
     
