@@ -23,6 +23,7 @@ const Insertlivres = () => {
     useEffect(()=>{
         getSpecialities()
     },[])
+    
     const getEditeurs=async()=>{
       try {
         const res = await axios.get("http://localhost:5000/api/editeurs");
@@ -34,6 +35,7 @@ const Insertlivres = () => {
     useEffect(()=>{
                 getEditeurs()
             },[])
+    
             const getAuteurs = async () => {
               try {
                 const res = await axios.get("http://localhost:5000/api/auteurs");
@@ -180,7 +182,7 @@ const Insertlivres = () => {
                         <Form.Control
                           as="select"
                           placeholder="auteurs"
-                          value={livres.auteurs?.nomauteur || ''}
+                          value={livres.nomauteur || ''}
                           onChange={(e) =>
                             SetLivres({ ...livres, nomauteur: e.target.value })
                           }
