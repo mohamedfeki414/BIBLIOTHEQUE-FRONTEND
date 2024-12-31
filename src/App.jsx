@@ -19,6 +19,7 @@ import Cart from "./components/users/Cart";
 import Login from "./components/Login";
 
 import '@mui/material/styles';
+import Listediteurstable from "./components/editeurs/Listediteurstable";
 
 
 const App = () => {
@@ -28,6 +29,7 @@ const App = () => {
         <Menu />
         <Routes>
           <Route path="/" element={<Navigate to="/login" replace />} />
+          
           <Route path="/livres" element={<Listlivres />} />
           <Route path="/livres/edit/:id" element={<Editlivres />} />
           <Route path="/livres/add" element={<Insertlivres />} />
@@ -40,6 +42,7 @@ const App = () => {
           <Route path="/editeurs" element={<Listediteurs />} />
           <Route path="/editeurs/edit/:id" element={<Editediteurs />} />
           <Route path="/editeurs/add" element={<Insertediteurs />} />
+          <Route path="/listauteurs" element={<Listediteurstable />} />
           
           <Route path="/specialites" element={<Listspecialites />} />
           <Route path="/specialites/edit/:id" element={<Editspecialites />} />
