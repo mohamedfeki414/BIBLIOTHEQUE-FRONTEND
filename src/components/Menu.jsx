@@ -3,6 +3,7 @@ import { Nav, Navbar, Container, Form, FormControl, Button } from 'react-bootstr
 import { Link, useNavigate } from 'react-router-dom';
 import { FaBook, FaSearch } from 'react-icons/fa';
 import './Menu.css'; // Importation du fichier CSS personnalisé
+import '@mui/material/styles';
 
 
 const Menu = () => {
