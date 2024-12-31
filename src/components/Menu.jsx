@@ -25,12 +25,12 @@ const Menu = () => {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
-            <Nav.Link as={Link} to="/livres">Livres</Nav.Link>
+          <Nav.Link as={Link} to="/listlivres">Livres Table</Nav.Link>
             <Nav.Link as={Link} to="/auteurs">Auteurs</Nav.Link>
-            <Nav.Link as={Link} to="/editeurs">Éditeurs</Nav.Link>
-            <Nav.Link as={Link} to="/specialites">Spécialités</Nav.Link>
-            <Nav.Link as={Link} to="/listlivres">Livres Table</Nav.Link>
             <Nav.Link as={Link} to="/listediteurs">Editeurs Table</Nav.Link>
+            <Nav.Link as={Link} to="/specialites">Spécialités</Nav.Link>
+            
+           
            
           </Nav>
           <Form className="d-flex">
