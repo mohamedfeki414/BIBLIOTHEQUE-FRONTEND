@@ -6,21 +6,21 @@ import { useNavigate } from 'react-router-dom'
 const Insertlivres = () => {
   const [livres, SetLivres] = useState({});
   const navigate = useNavigate();
+  const [specialities,SetSpecialities] = useState([]);
   
 
-  const getLivres = async () => {
-    try {
-      const res = await axios.get("http://localhost:5000/api/livres");
-      SetLivres(res.data);
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
-  useEffect(() => {
-    getLivres();
-  }, []);
-
+  const getSpecialities=async()=>{
+    await axios.get("http://localhost:5000/api/specialites")
+    .then(res=>{
+        SetSpecialities(res.data)
+    })
+    .catch(error=>{ 
+        console.log(error) 
+      }) 
+    } 
+    useEffect(()=>{
+        getSpecialities()
+    },[])
   const handleSave = async (e) => {
     e.preventDefault();
     try {
@@ -115,13 +115,19 @@ const Insertlivres = () => {
                       <Form.Group as={Col} className="mb-3">
                         <Form.Label>Nom Specialité</Form.Label>
                         <Form.Control
-                          type="text"
+                          as="select"
                           placeholder="nomspecialite"
-                          value={livres.specialite?.nomspecialite || ''}
-                          onChange={(e) =>
-                            SetLivres({ ...livres, nomspecialite: e.target.value })
+                          value={livres.specialite || ''}
+                          onChange={(e) =>SetLivres({ ...livres, specialite: e.target.value })}
+                            >
+                            <option value="">Sélectionnez une specialité</option>
+                            {specialities.map((scat) => (
+                             <option key={scat._id} value={scat._id}>
+                                {scat.nomspecialite}
+                                  </option>
+                              ))
                           }
-                        />
+                          </Form.Control>
                       </Form.Group>
                     </Row>
                     <Row>
