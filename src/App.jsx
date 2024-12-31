@@ -42,7 +42,7 @@ const App = () => {
           <Route path="/editeurs" element={<Listediteurs />} />
           <Route path="/editeurs/edit/:id" element={<Editediteurs />} />
           <Route path="/editeurs/add" element={<Insertediteurs />} />
-          <Route path="/listauteurs" element={<Listediteurstable />} />
+          <Route path="/listediteurs" element={<Listediteurstable />} />
           
           <Route path="/specialites" element={<Listspecialites />} />
           <Route path="/specialites/edit/:id" element={<Editspecialites />} />

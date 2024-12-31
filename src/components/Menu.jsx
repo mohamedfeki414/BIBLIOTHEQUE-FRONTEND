@@ -2,11 +2,6 @@ import React from 'react';
 import { Nav, Navbar, Container, Form, FormControl, Button } from 'react-bootstrap';
 import { Link, useNavigate } from 'react-router-dom';
 import { FaBook, FaSearch } from 'react-icons/fa';
-import Badge from '@mui/material/Badge';
-import { styled } from '@mui/material/styles';
-import IconButton from '@mui/material/IconButton';
-import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
-import { useShoppingCart } from 'use-shopping-cart';
 import './Menu.css'; // Importation du fichier CSS personnalisé
 
 
@@ -35,6 +30,7 @@ const Menu = () => {
             <Nav.Link as={Link} to="/editeurs">Éditeurs</Nav.Link>
             <Nav.Link as={Link} to="/specialites">Spécialités</Nav.Link>
             <Nav.Link as={Link} to="/listlivres">Livres Table</Nav.Link>
+            <Nav.Link as={Link} to="/listediteurs">Editeurs Table</Nav.Link>
            
           </Nav>
           <Form className="d-flex">
