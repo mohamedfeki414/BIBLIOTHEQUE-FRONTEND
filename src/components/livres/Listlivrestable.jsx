@@ -1,7 +1,6 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
-import Affichearticles from './Affichelivres';
+import Affichelivres from './Affichelivres';
 
 const Listlivrestable = () => {
     const[livres,setLivres]=useState([]); 
@@ -32,7 +31,7 @@ const Listlivrestable = () => {
   
   return (
     <div>
-       <Affichearticles livres={livres} handleDelete={handleDelete}/>
+       <Affichelivres livres={livres} handleDelete={handleDelete}/>
     </div>
   )
 }

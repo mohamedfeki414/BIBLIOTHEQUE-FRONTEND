@@ -4,7 +4,8 @@ import {
   useMaterialReactTable,
 } from 'material-react-table';
 import { Box } from '@mui/material'; 
-import Button from 'react-bootstrap/Button'; 
+import Button from 'react-bootstrap/Button';
+import { Link } from 'react-router-dom'; 
 
 const Affichelivres = ({livres}) => {
     const columns = useMemo(
@@ -71,6 +72,7 @@ const Affichelivres = ({livres}) => {
                 size: 100, 
                 Cell: ({ cell, row }) => ( 
                 <div > 
+                   <Link to={`/livres/edit/${row.original._id}`}>
                 <Button 
                 onClick={() => { 
                 console.log("modification ...") 
@@ -79,12 +81,12 @@ const Affichelivres = ({livres}) => {
                 size="md" 
                 className="text-warning btn-link edit" 
                 > 
-                <i class="fa-solid fa-pen-to-square"></i> 
+                <i className="fa-solid fa-pen-to-square"></i> 
                 </Button> 
+                </Link>
                 <Button 
                 onClick={(e) => { 
-                  deleteProduct(cell.row.original._id,cell.row.original.reference, 
-    e); 
+                  deleteProduct(cell.row.original._id,cell.row.original.reference, e); 
                 }} 
                 variant="danger" 
                 size="md" 
