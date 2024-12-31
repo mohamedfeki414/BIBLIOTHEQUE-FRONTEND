@@ -7,6 +7,10 @@ import { useNavigate, useParams } from 'react-router-dom'
 
 const Editlivres = () => {
     const [livres, SetLivres] = useState({});
+     const [specialities,SetSpecialities] = useState([]);
+      const [editeurs, SetEditeurs] = useState([]);
+      const [auteurs, SetAuteurs] = useState([]);
+      
   const navigate = useNavigate();
   const { id } = useParams();
 
@@ -22,6 +26,43 @@ const Editlivres = () => {
   useEffect(() => {
     getLivres(id);
   }, [id]);
+  const getSpecialities=async()=>{
+    await axios.get("http://localhost:5000/api/specialites")
+    .then(res=>{
+        SetSpecialities(res.data)
+    })
+    .catch(error=>{ 
+        console.log(error) 
+      }) 
+    } 
+    useEffect(()=>{
+        getSpecialities()
+    },[])
+    
+    const getEditeurs=async()=>{
+      try {
+        const res = await axios.get("http://localhost:5000/api/editeurs");
+        SetEditeurs(res.data);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    useEffect(()=>{
+                getEditeurs()
+            },[])
+    
+            const getAuteurs = async () => {
+              try {
+                const res = await axios.get("http://localhost:5000/api/auteurs");
+                SetAuteurs(res.data);
+              } catch (error) {
+                console.log(error);
+              }
+            };
+          
+            useEffect(() => {
+              getAuteurs();
+            }, []);
 
   const handleSave = async (e) => {
     e.preventDefault();
@@ -114,44 +155,63 @@ const Editlivres = () => {
                   </Form.Group>
                 </Row>
                 <Row>
-                  <Form.Group as={Col} className="mb-3">
-                    <Form.Label>Nom Specialité</Form.Label>
-                    <Form.Control
-                      type="text"
-                      placeholder="nomspecialite"
-                      value={livres.specialite?.nomspecialite || ''}
-                      onChange={(e) =>
-                        SetLivres({ ...livres, nomspecialite: e.target.value })
-                      }
-                    />
-                  </Form.Group>
-                </Row>
-                <Row>
-                  <Form.Group as={Col} className="mb-3">
-                    <Form.Label>Maison edition</Form.Label>
-                    <Form.Control
-                      type="text"
-                      placeholder="maisonedition"
-                      value={livres.maised?.maisonedit || ''}
-                      onChange={(e) =>
-                        SetLivres({ ...livres, maisonedit: e.target.value })
-                      }
-                    />
-                  </Form.Group>
-                </Row>
-                <Row>
-                  <Form.Group as={Col} className="mb-3">
-                    <Form.Label>Auteurs</Form.Label>
-                    <Form.Control
-                      type="text"
-                      placeholder="auteurs"
-                      value={livres.auteurs?.nomauteur || ''}
-                      onChange={(e) =>
-                        SetLivres({ ...livres, nomauteur: e.target.value })
-                      }
-                    />
-                  </Form.Group>
-                </Row>
+                                      <Form.Group as={Col} className="mb-3">
+                                        <Form.Label>Nom Specialité</Form.Label>
+                                        <Form.Control
+                                          as="select"
+                                          placeholder="nomspecialite"
+                                          value={livres.specialite || ''}
+                                          onChange={(e) =>SetLivres({ ...livres, specialite: e.target.value })}
+                                            >
+                                            <option value="">Sélectionnez une specialité</option>
+                                            {specialities.map((scat) => (
+                                             <option key={scat._id} value={scat._id}>
+                                                {scat.nomspecialite}
+                                                  </option>
+                                              ))
+                                          }
+                                          </Form.Control>
+                                      </Form.Group>
+                                    </Row>
+                                    <Row>
+                                      <Form.Group as={Col} className="mb-3">
+                                        <Form.Label>Maison edition</Form.Label>
+                                        <Form.Control
+                                          as="select"
+                                          placeholder="maisonedition"
+                                          value={livres.maised || ''}
+                                          onChange={(e) => SetLivres({ ...livres, maised: e.target.value })}>
+                                             <option value="">Sélectionnez une maison d 'edition</option>
+                                            {editeurs.map((scat) => (
+                                             <option key={scat._id} value={scat._id}>
+                                                {scat.maisonedit}
+                                                  </option>
+                                              ))
+                                          }
+                                          </Form.Control>
+                                        
+                                      </Form.Group>
+                                    </Row>
+                                    <Row>
+                                      <Form.Group as={Col} className="mb-3">
+                                        <Form.Label>Auteurs</Form.Label>
+                                        <Form.Control
+                                          as="select"
+                                          placeholder="auteurs"
+                                          value={livres.auteurs || ''}
+                                          onChange={(e) =>
+                                            SetLivres({ ...livres, auteurs: e.target.value })}>
+                                              <option value="">Sélectionnez l' auteur</option>
+                                            {auteurs.map((scat) => (
+                                             <option key={scat._id} value={scat._id}>
+                                                {scat.nomauteur}
+                                                  </option>
+                                              ))
+                                          }
+                                            </Form.Control>
+                                        
+                                      </Form.Group>
+                                    </Row>
 
 
                 
