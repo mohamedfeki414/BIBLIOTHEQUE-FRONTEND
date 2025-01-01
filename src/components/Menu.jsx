@@ -1,7 +1,7 @@
 import React from 'react';
-import { Nav, Navbar, Container, Form, FormControl, Button, NavDropdown } from 'react-bootstrap';
+import { Nav, Navbar, Container, Form, Button } from 'react-bootstrap';
 import { Link, useNavigate } from 'react-router-dom';
-import { FaBook, FaSearch } from 'react-icons/fa';
+import { FaBook } from 'react-icons/fa';
 import './Menu.css'; // Importation du fichier CSS personnalisé
 import { styled } from '@mui/material/styles';
 import Badge from '@mui/material/Badge';
@@ -52,16 +52,8 @@ const Menu = () => {
             </Nav.Link>
           </Nav>
           <Form className="d-flex">
-            <FormControl
-              type="search"
-              placeholder="Rechercher un livre, auteur..."
-              className="me-2"
-              aria-label="Search"
-            />
-            <Button variant="success" className="me-2">
-              <FaSearch className="me-1" />
-              Chercher
-            </Button>
+           
+           
             <Button variant="outline-primary" onClick={() => navigate('/accu')} className="me-2">
               Accueil
             </Button>

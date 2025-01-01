@@ -1,13 +1,16 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom'
 
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+   
 
     try {
       const response = await axios.post(
@@ -17,7 +20,7 @@ const Login = () => {
       );
 
       console.log('Réponse du serveur:', response.data);
-      // Rediriger ou faire autre chose après connexion réussie
+      navigate('/accu');
       alert('Connexion réussie !');
     } catch (err) {
       setError(err.response?.data?.message || 'Une erreur est survenue');
