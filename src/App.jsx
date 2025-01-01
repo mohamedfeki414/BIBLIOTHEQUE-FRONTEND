@@ -24,6 +24,7 @@ import Listediteurstable from "./components/editeurs/Listediteurstable";
 import Lislivrescard from "./components/users/Lislivrescard";
 import { CartProvider } from "use-shopping-cart";
 import Listeauteurstable from "./components/auteurs/Listeauteurstable";
+import Listespecialitiestable from "./components/specialites/Listespecialitiestable";
 
 const App = () => {
   return (
@@ -51,6 +52,7 @@ const App = () => {
           <Route path="/specialites" element={<Listspecialites />} />
           <Route path="/specialites/edit/:id" element={<Editspecialites />} />
           <Route path="/specialites/add" element={<Insertspecialites />} />
+          <Route path="/listespecialites" element={<Listespecialitiestable />} />
 
           <Route path="/users" element={<Lislivrescard />} />
 
