@@ -38,12 +38,9 @@ const Menu = () => {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
-            <NavDropdown title="Livres" id="nav-dropdown">
-              <NavDropdown.Item as={Link} to="/listlivres">Table des Livres</NavDropdown.Item>
-              <NavDropdown.Item as={Link} to="/nouveau-livre">Ajouter un Livre</NavDropdown.Item>
-            </NavDropdown>
+          <Nav.Link as={Link} to="/listlivres">Livres</Nav.Link>
             <Nav.Link as={Link} to="/auteurs">Auteurs</Nav.Link>
-            <Nav.Link as={Link} to="/listediteurs">Editeurs Table</Nav.Link>
+            <Nav.Link as={Link} to="/listediteurs">Editeurs</Nav.Link>
             <Nav.Link as={Link} to="/specialites">Spécialités</Nav.Link>
             <Nav.Link as={Link} to="/users">Clients</Nav.Link>
             <Nav.Link as={Link} to="/Cart">
