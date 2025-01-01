@@ -12,7 +12,7 @@ const Cart = () => {
         <div className="cart-empty">
           <p>Panier Vide</p>
           <div className="start-shopping">
-            <Link to="/client">
+            <Link to="/users">
               <span>Start Shopping</span>
             </Link>
           </div>

@@ -21,11 +21,12 @@ import Login from "./components/Login";
 import '@mui/material/styles';
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import Listediteurstable from "./components/editeurs/Listediteurstable";
-
+import Lislivrescard from "./components/users/Lislivrescard";
+import { CartProvider } from "use-shopping-cart";
 
 const App = () => {
   return (
-    <div>
+    <CartProvider>
       <Router>
         <Menu />
         <Routes>
@@ -48,6 +49,9 @@ const App = () => {
           <Route path="/specialites" element={<Listspecialites />} />
           <Route path="/specialites/edit/:id" element={<Editspecialites />} />
           <Route path="/specialites/add" element={<Insertspecialites />} />
+
+          <Route path="/users" element={<Lislivrescard />} />
+
           
           <Route path="/accu" element={<Home />} />
           <Route path="/Cart" element={<Cart />} />
@@ -56,7 +60,7 @@ const App = () => {
           
         </Routes>
       </Router>
-    </div>
+      </CartProvider>
   );
 }
 

@@ -21,7 +21,7 @@ const Lislivrescard = () => {
       <div  style={{"display":"flex","flexWrap":"wrap","justifyContent":"left"}}>
       {
         livres.map((art,index)=>
-        <Cards article={art} key={index}/>
+        <Cards livres={art} key={index}/>
         )
       }
       </div>
