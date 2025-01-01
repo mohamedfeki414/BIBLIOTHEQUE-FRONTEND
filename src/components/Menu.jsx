@@ -41,7 +41,7 @@ const Menu = () => {
           <Nav.Link as={Link} to="/listlivres">Livres</Nav.Link>
             <Nav.Link as={Link} to="/listauteurs">Auteurs</Nav.Link>
             <Nav.Link as={Link} to="/listediteurs">Editeurs</Nav.Link>
-            <Nav.Link as={Link} to="/specialites">Spécialités</Nav.Link>
+            <Nav.Link as={Link} to="/listespecialites">Spécialités</Nav.Link>
             <Nav.Link as={Link} to="/users">Clients</Nav.Link>
            
             <Nav.Link as={Link} to="/Cart">
