@@ -19,6 +19,7 @@ import Cart from "./components/users/Cart";
 import Login from "./components/Login";
 
 import '@mui/material/styles';
+import '@fortawesome/fontawesome-free/css/all.min.css';
 import Listediteurstable from "./components/editeurs/Listediteurstable";
 
 
