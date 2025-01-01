@@ -39,10 +39,11 @@ const Menu = () => {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
           <Nav.Link as={Link} to="/listlivres">Livres</Nav.Link>
-            <Nav.Link as={Link} to="/auteurs">Auteurs</Nav.Link>
+            <Nav.Link as={Link} to="/listauteurs">Auteurs</Nav.Link>
             <Nav.Link as={Link} to="/listediteurs">Editeurs</Nav.Link>
             <Nav.Link as={Link} to="/specialites">Spécialités</Nav.Link>
             <Nav.Link as={Link} to="/users">Clients</Nav.Link>
+           
             <Nav.Link as={Link} to="/Cart">
               <IconButton aria-label="cart">
                 <StyledBadge badgeContent={cartCount > 0 ? cartCount : null} color="secondary">

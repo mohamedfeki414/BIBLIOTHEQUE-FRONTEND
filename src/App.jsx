@@ -23,6 +23,7 @@ import '@fortawesome/fontawesome-free/css/all.min.css';
 import Listediteurstable from "./components/editeurs/Listediteurstable";
 import Lislivrescard from "./components/users/Lislivrescard";
 import { CartProvider } from "use-shopping-cart";
+import Listeauteurstable from "./components/auteurs/Listeauteurstable";
 
 const App = () => {
   return (
@@ -40,6 +41,7 @@ const App = () => {
           <Route path="/auteurs" element={<Listauteurs />} />
           <Route path="/auteurs/edit/:id" element={<Editauteurs />} />
           <Route path="/auteurs/add" element={<Insertauteurs />} />
+          <Route path="/listauteurs" element={<Listeauteurstable />} />
           
           <Route path="/editeurs" element={<Listediteurs />} />
           <Route path="/editeurs/edit/:id" element={<Editediteurs />} />
