@@ -1,29 +1,35 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-import Particles from 'react-tsparticles';
+import { gsap } from 'gsap';
+import './Home.css';
 
 const Home = () => {
+  useEffect(() => {
+    gsap.to('.book', {
+      y: 'random(-20, 20)',
+      x: 'random(-20, 20)',
+      duration: 3,
+      ease: 'sine.inOut',
+      repeat: -1,
+      yoyo: true,
+    });
+  }, []);
+
   return (
-    <section className="menu-body" style={{ position: 'relative', minHeight: '100vh' }}>
-      <Particles
-        options={{
-          background: { color: { value: '#000' } },
-          particles: {
-            number: { value: 50 },
-            size: { value: 3 },
-            move: { enable: true, speed: 3 },
-          },
-        }}
-        style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%' }}
-      />
+    <section className="menu-body">
+      <div className="floating-books">
+        {[...Array(5)].map((_, index) => (
+          <div key={index} className="book"></div>
+        ))}
+      </div>
       <div className="text-center py-5" style={{ position: 'relative', zIndex: 1 }}>
-        <h1>Bienvenue à la Bibliothèque</h1>
+        <h1>Bienvenue au Gestionnaire de Bibliothèque</h1>
         <p className="lead">
-          Explorez une vaste collection de livres, rencontrez des auteurs fascinants et découvrez de nouvelles spécialités.
+          Gagnez du temps ! Gérez vos livres, vos auteurs, et vos emprunts facilement.
         </p>
-        <Button as={Link} to="/listlivres" variant="primary" size="lg" className="mt-3">
-          Explorer maintenant
+        <Button as={Link} to="/dashboard" variant="primary" size="lg" className="mt-3">
+          Commencer
         </Button>
       </div>
     </section>
