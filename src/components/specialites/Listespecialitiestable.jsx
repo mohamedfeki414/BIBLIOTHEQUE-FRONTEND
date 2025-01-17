@@ -28,6 +28,7 @@ const Listespecialitiestable = () => {
         };
   return (
     <div>
+      <h2>Listes Des Specialites</h2>
     <Link to="/specialites/add">
                    <Button variant="success" style={{ backgroundColor: 'green' }}>
                    <i className="fa-solid fa-square-plus"  style={{color: "#fcfcfd"}}></i>
