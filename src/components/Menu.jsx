@@ -8,6 +8,7 @@ import Badge from '@mui/material/Badge';
 import IconButton from '@mui/material/IconButton';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import { useShoppingCart } from 'use-shopping-cart';
+import { useLocation } from 'react-router-dom';
 
 const StyledBadge = styled(Badge)(({ theme }) => ({
   '& .MuiBadge-badge': {
@@ -27,6 +28,9 @@ const Menu = () => {
     localStorage.removeItem('authToken'); // Suppression du token d'authentification
     navigate('/login'); // Redirection vers la page de connexion
   };
+  const location = useLocation();
+
+  if (location.pathname === '/login') return null; // Hide Menu for login page
 
   return (
     <Navbar variant="dark" expand="lg" className="navbar-custom">

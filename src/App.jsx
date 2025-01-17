@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route, Navigate, useLocation } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
 import './App.css';
 import Listlivres from './components/livres/Listlivres';
 import Menu from "./components/Menu";
@@ -27,17 +27,12 @@ import Listeauteurstable from "./components/auteurs/Listeauteurstable";
 import Listespecialitiestable from "./components/specialites/Listespecialitiestable";
 
 const App = () => {
-  // Hook pour récupérer la route actuelle
-  const location = useLocation();
-
   return (
     <CartProvider>
       <Router>
-        {/* Condition pour ne pas afficher le Menu sur la page de login */}
-        {location.pathname !== '/login' && <Menu />}
-        
+        <Menu />
         <Routes>
-          <Route path="/" element={<Navigate to="/login" replace />} />
+          <Route path="/" element={<Navigate to="/accu" replace />} />
           
           <Route path="/livres" element={<Listlivres />} />
           <Route path="/livres/edit/:id" element={<Editlivres />} />
@@ -61,13 +56,16 @@ const App = () => {
 
           <Route path="/users" element={<Lislivrescard />} />
 
+          
           <Route path="/accu" element={<Home />} />
           <Route path="/Cart" element={<Cart />} />
-          <Route path="/login" element={<Login />} />
+          <Route path="/login" element={<Login/>}/>
+          
+          
         </Routes>
       </Router>
-    </CartProvider>
+      </CartProvider>
   );
-};
+}
 
 export default App;
