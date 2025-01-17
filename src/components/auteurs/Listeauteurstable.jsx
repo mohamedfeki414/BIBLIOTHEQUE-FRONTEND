@@ -31,7 +31,7 @@ const Listeauteurstable = () => {
 
   return (
     <div>
-       <h2>Listes Des Auteurs</h2>
+       <h2 class="special-h2">Listes Des Auteurs</h2>
     <Link to="/auteurs/add">
                    <Button variant="success" style={{ backgroundColor: 'green' }}>
                    <i className="fa-solid fa-square-plus"  style={{color: "#fcfcfd"}}></i>

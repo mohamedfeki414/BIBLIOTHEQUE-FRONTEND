@@ -32,7 +32,7 @@ const Listlivrestable = () => {
   
   return (    
     <div>
-      <h2>Liste des Livres </h2> 
+      <h2 class="special-h2">Liste des Livres </h2> 
        <Link to="/livres/add">
                       <Button variant="success" style={{ backgroundColor: 'green' }}>
                       <i className="fa-solid fa-square-plus"  style={{color: "#fcfcfd"}}></i>
