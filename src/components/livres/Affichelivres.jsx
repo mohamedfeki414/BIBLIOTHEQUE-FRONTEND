@@ -26,6 +26,7 @@ const Affichelivres = ({ livres, handleDelete }) => {
         accessorKey: 'prix',
         header: 'Prix',
         size: 100,
+        Cell: ({ cell }) => (<span>{cell.getValue()} TND</span>),
       },
       {
         accessorKey: 'qtestock',

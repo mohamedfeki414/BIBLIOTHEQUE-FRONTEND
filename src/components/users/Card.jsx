@@ -31,7 +31,7 @@ const Cards = ({livres}) => {
       />
       <CardContent>
         <Typography gutterBottom variant="h5" component="div">
-          {livres.prix}
+           {livres.prix} TND
         </Typography>
         <Typography variant="body2" sx={{ color: 'text.secondary' }}>
           {livres.titre.substr(0,20)}
