@@ -31,7 +31,7 @@ const Listediteurstable = () => {
   return (
     <div>
       <h2 class="special-h2">Listes Des Editeurs</h2>
-    <Link to="/livres/add">
+    <Link to="/editeurs/add">
                    <Button variant="success" style={{ backgroundColor: 'green' }}>
                    <i className="fa-solid fa-square-plus"  style={{color: "#fcfcfd"}}></i>
                    Nouveau
