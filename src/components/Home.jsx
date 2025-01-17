@@ -28,7 +28,7 @@ const Home = () => {
         <p className="lead">
           Gagnez du temps ! Gérez vos livres, vos auteurs, et vos emprunts facilement.
         </p>
-        <Button as={Link} to="/dashboard" variant="primary" size="lg" className="mt-3">
+        <Button as={Link} to="/listlivres" variant="primary" size="lg" className="mt-3">
           Commencer
         </Button>
       </div>
