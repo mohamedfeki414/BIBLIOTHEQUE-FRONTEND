@@ -827,17 +827,16 @@
 }
 .special-h2 {
   font-size: 3rem;
-  font-family: 'Cinzel', serif; /* Téléchargez une police spéciale depuis Google Fonts */
-  color: #fff;
-  text-shadow: 0 0 5px #ff00ff, 0 0 10px #ff00ff, 0 0 20px #ff00ff, 0 0 40px #ff00ff, 0 0 80px #ff00ff;
-  animation: neon-flicker 2s infinite alternate;
+  font-family: 'Poppins', sans-serif; /* Choisissez une police élégante */
+  background: linear-gradient(90deg, #ad61ff, #595cff, #6ef5ff, #5effbf);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  animation: gradient-move 5s linear infinite;
 }
 
-@keyframes neon-flicker {
-  0%, 100% {
-    text-shadow: 0 0 5px #ff00ff, 0 0 10px #ff00ff, 0 0 20px #ff00ff, 0 0 40px #ff00ff;
-  }
-  50% {
-    text-shadow: 0 0 2px #ff00ff, 0 0 5px #ff00ff, 0 0 10px #ff00ff, 0 0 20px #ff00ff;
-  }
+@keyframes gradient-move {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
