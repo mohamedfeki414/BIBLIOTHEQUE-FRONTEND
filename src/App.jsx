@@ -37,7 +37,7 @@ const App = () => {
         {location.pathname !== '/login' && <Menu />}
         
         <Routes>
-          <Route path="/" element={<Navigate to="/accu" replace />} />
+          <Route path="/" element={<Navigate to="/login" replace />} />
           
           <Route path="/livres" element={<Listlivres />} />
           <Route path="/livres/edit/:id" element={<Editlivres />} />
